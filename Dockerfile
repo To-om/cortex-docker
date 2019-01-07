@@ -14,7 +14,7 @@ RUN apt-get -y install gnupg2 apt-transport-https ca-certificates git ruby-hocon
 RUN echo 'deb https://dl.bintray.com/thehive-project/debian-stable any main' |  tee -a /etc/apt/sources.list.d/thehive-project.list
 RUN apt-key adv --keyserver hkp://pgp.circl.lu --recv-key 562CBC1C
 RUN apt-get -y update
-RUN apt-get -y install cortex
+RUN apt-get -y install cortex=2.1.3-1
 RUN apt-get -y install python-pip python3-pip python3-dev python3 ssdeep libfuzzy-dev libfuzzy2 libimage-exiftool-perl libmagic1 build-essential libssl-dev
 WORKDIR /opt
 RUN git clone https://github.com/CERT-BDF/Cortex-Analyzers
