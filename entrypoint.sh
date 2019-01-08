@@ -24,7 +24,8 @@ function usage {
 }
 
 if [ ! -f $CONFIG_FILE ]; then
-	hocon -i /tmp/application.conf.default -o /etc/cortex/application.conf  set search.host [\"elasticsearch\:9300\"]
+	hocon -i /tmp/application.conf.default  set search.host [\"elasticsearch\:9300\"] \
+		hocon -o /etc/cortex/application.conf set analyser.path [\"\/opt\/Cortex-Analyzers\/analyzers\"]
 fi
 
 if [ ! -f /etc/thehive/logback.xml ]; then
