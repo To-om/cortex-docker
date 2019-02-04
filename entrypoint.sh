@@ -25,6 +25,10 @@ function usage {
 
 if [ ! -f $CONFIG_FILE ]; then
 	hocon -i /tmp/application.conf.default  set search.host [\"elasticsearch\:9300\"] | \
+		hocon set responder.path [\"\/opt\/Cortex-Analyzers\/responders\"] | \ 
+		hocon set responder.fork-join-executor.parallelism-min 2 | \ 
+		hocon set responder.fork-join-executor.parallelism-factor 2.0 | \
+		hocon set responder.fork-join-executor.parallelism-max 4 | \
 		hocon -o /etc/cortex/application.conf set analyzer.path [\"\/opt\/Cortex-Analyzers\/analyzers\"]
 fi
 
